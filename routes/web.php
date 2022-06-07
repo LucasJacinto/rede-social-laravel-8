@@ -5,17 +5,6 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [PostController::class, 'index']);
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::get('/profile', [PostController::class, 'profile']);
 
-Route::get('/friends', function () {
-    
-    $busca = request('search');
-
-    return view('friends', ['busca' => $busca]);
-});
-
-Route::get('/friends_teste/{id?}', function ($id = null) {
-return view('friend', ['id' => $id]);
-});
+Route::get('/friends', [PostController::class, 'friends']);

@@ -25,8 +25,9 @@
                     <a href="/" class="navbar-brand">
                         <img src="/img/logo_amigos.png" alt="Rede Social">
                     </a>
-                    <input type="text" name="search-friend" id="search-friend">
-                    <input type="submit" value="Procurar">
+                    <!-- <div id="post-create-container">
+                    <input type="text" class="form-control" name="search-friend" id="search-friend" placeholder="Procurar...">
+                    </div> -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="/profile" class="nav-link">Meu perfil</a>

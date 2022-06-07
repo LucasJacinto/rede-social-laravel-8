@@ -3,27 +3,13 @@
 @section('title', 'Rede Social')
 
 @section('content')
-
-<h1>Algum título</h1>
-@if (10 > 5)
-    <p>A condição é true</p>
-@endif
-
-@if ($nome == "Lucas")
-<p>O nome é {{ $nome }} e ele tem {{ $idade }} anos</p>
-@else
-<p>O nome não é Lucas</p>
-@endif
-
-@for ($i = 0; $i < count($arr); $i++)
-    <p>{{ $arr[$i] }}</p>
-    @if ($i == 2)
-    <p>i = 2</p>
-    @endif
-@endfor
-
-@foreach ($nomes as $nome)
-    <p>{{ $loop->index }} - {{ $nome }}</p>
-@endforeach
+<!--
+<div id="post-create-container" class="col-md-5 offset-md-3">
+    <form action="/algumacoisa" method="POST">
+        <textarea name="description" id="description" class="form-control" placeholder="Nova publicação"></textarea>
+        <input type="submit" class="btn btn-primary" value="Postar">
+    </form>
+</div>
+-->
 
 @endsection

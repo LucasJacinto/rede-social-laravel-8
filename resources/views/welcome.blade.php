@@ -5,8 +5,9 @@
 @section('content')
 
 <div id="post-create-container" class="col-md-5 offset-md-3">
-    <form action="/algumacoisa" method="POST">
-        <textarea name="description" id="description" class="form-control" placeholder="Nova publicação"></textarea>
+    <form action="/" method="POST">
+        @csrf
+        <textarea name="content" id="content" class="form-control" placeholder="Nova publicação"></textarea>
         <div>
             <input type="submit" class="btn btn-primary" value="Postar">
         </div>

@@ -9,9 +9,19 @@ class PostController extends Controller
 {
     public function index() 
     {
-        $posts = Post::all();
+        $posts = Post::latest()->get();
 
         return view('welcome', ['posts' => $posts]);
+    }
+
+    public function store(Request $request) 
+    {
+        $post = new Post;
+        $post->content = $request->content;
+
+        $post->save();
+
+        return redirect('/');
     }
 
     public function profile()

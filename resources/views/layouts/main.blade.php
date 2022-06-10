@@ -22,23 +22,34 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
-                    <a href="/" class="navbar-brand">
-                        <img src="/img/logo_amigos.png" alt="Rede Social">
-                    </a>
-                    <!-- <div id="post-create-container">
-                    <input type="text" class="form-control" name="search-friend" id="search-friend" placeholder="Procurar...">
-                    </div> -->
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="/profile" class="nav-link">Meu perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/friends" class="nav-link">Amigos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/" class="nav-link">Grupos</a>
-                        </li>
-                    </ul>
+                    <div>
+                        <div id="logo">
+                            <a href="/" class="navbar-brand">
+                                <img src="/img/logo_amigos.png" alt="Rede Social">
+                            </a>
+                        </div>
+                        <div id="post-search-container">
+                            <form action="/algumcaminho" method="GET">
+                                <input type="text" class="form-control" name="search-friend" id="search-friend" placeholder="Procurar...">
+                            </form>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">Início</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/profile" class="nav-link">Meu perfil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/friends" class="nav-link">Amigos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">Grupos</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </header>

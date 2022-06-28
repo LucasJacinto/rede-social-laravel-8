@@ -33,8 +33,8 @@
                             </a>
                         </div>
                         <div id="post-search-container">
-                            <form action="/algumcaminho" method="GET">
-                                <input type="text" class="form-control" name="search-friend" id="search-friend" placeholder="Procurar...">
+                            <form action="/" method="GET">
+                                <input type="text" class="form-control" name="search" id="search" placeholder="Procurar...">
                             </form>
                         </div>
                     </div>

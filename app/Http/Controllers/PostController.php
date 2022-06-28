@@ -9,9 +9,17 @@ class PostController extends Controller
 {
     public function index() 
     {
-        $posts = Post::latest()->get();
+        $search = request('search');
 
-        return view('welcome', ['posts' => $posts]);
+        if($search) {
+            $posts = Post::where([
+                ['content', 'like', '%'.$search.'%']
+            ])->get();
+        } else {
+            $posts = Post::latest()->get();
+        }
+
+        return view('welcome', ['posts' => $posts, 'search' => $search]);
     }
 
     public function store(Request $request) 

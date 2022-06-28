@@ -114,6 +114,37 @@ header {
     margin: 15px;
 }
 
+#cards-container .post-likes {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-likes ion-icon {
+    color: #1CA1D9;
+    font-size: 25px;
+    transform: scaleX(-1);
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+
+
+/* #icon-check {
+    display: none;
+}
+
+#icon-check:checked + .label ion-icon {
+    color:#F29D52;
+} */
+
+/* .thumbs-icon-changed {
+    position: absolute;
+    justify-content: start;
+} */
+
 #img-post {
     max-width: 100%;
     cursor: pointer;

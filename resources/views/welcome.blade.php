@@ -11,7 +11,7 @@
         <div>
             <label for="image">Imagem</label>
             <div class="nomeArquivo"></div>
-            <input type="file" name="image" id="image">
+            <input type="file" name="image" id="image" accept="image/*">
             <input type="submit" class="btn btn-primary" value="Postar">
         </div>
     </form>
@@ -22,8 +22,14 @@
     @foreach ($posts as $post)
         <div id="cards-container" class="row col-md-12">
             <div>
-                <p class="card-date">08/06/2022</p>
+                <p class="card-date"></p>
                 <img class="img-post" id="img-post" src="/img/posts/{{ $post->image }}" alt="Imagem postada por Usuário" data-content="{{ $post->content }}" data-bs-toggle="modal" data-bs-target="#myModal">
+                <p class="post-likes">
+                    <!-- <ion-icon name="thumbs-up-outline" class="thumbs-icon-changed" id="thumb-icon-changed"></ion-icon>  -->
+                    <!-- <input type="checkbox" name="icon-check" id="icon-check"> -->
+                    <label class="label" for="icon-check"><ion-icon name="thumbs-up-outline" class="thumbs-icon" id="thumbs-icon" data-id-post="{{ $post->id }}"></ion-icon></label>
+                    curtidas: X
+                </p>
                 <p class="card-content">{{ $post->content }}</p>
             </div>
         </div>

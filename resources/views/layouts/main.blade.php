@@ -40,6 +40,7 @@
                     </div>
                     <div>
                         <ul class="navbar-nav">
+                            @auth
                             <li class="nav-item">
                                 <a href="/" class="nav-link">Início</a>
                             </li>
@@ -47,11 +48,25 @@
                                 <a href="/profile" class="nav-link">Meu perfil</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/friends" class="nav-link">Amigos</a>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <a href="/logout"
+                                       class="nav-link"
+                                       onclick="event.preventDefault();
+                                       this.closest('form').submit();"> 
+                                       Sair
+                                    </a>
+                                </form>
+                            </li>  
+                            @endauth
+                            @guest
+                            <li class="nav-item">
+                                <a href="/login" class="nav-link">Entrar</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/" class="nav-link">Grupos</a>
+                                <a href="/register" class="nav-link">Cadastrar</a>
                             </li>
+                            @endguest
                         </ul>
                     </div>
                 </div>

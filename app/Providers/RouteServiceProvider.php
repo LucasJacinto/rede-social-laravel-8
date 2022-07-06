@@ -17,6 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+    // Redirecionando o usuário para welcome após login.
     public const HOME = '/';
 
     /**

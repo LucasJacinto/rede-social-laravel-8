@@ -21,7 +21,7 @@
 <div id="posts-container" class="col-md-12">
     @foreach ($posts as $post)
         <div id="cards-container" class="row col-md-12">
-            <div>
+            <div class="card-post">
                 @foreach ($postCreators as $postCreator)
                    @if ($post->user_id === $postCreator->id)
                       <p class="card-user">{{ $postCreator->name }}</p>

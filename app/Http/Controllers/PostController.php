@@ -52,7 +52,10 @@ class PostController extends Controller
 
     public function profile()
     {
-        return view('profile');
+        $user = auth()->user();
+        $posts = $user->posts;
+
+        return view('profile', ['posts' => $posts, 'user' => $user]);
     }
 
     public function friends()

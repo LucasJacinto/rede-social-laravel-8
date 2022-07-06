@@ -6,9 +6,9 @@ use App\Http\Controllers\PostController;
 Route::get('/', [PostController::class, 'index'])->middleware('auth');
 Route::post('/', [PostController::class, 'store']);
 
-Route::get('/profile', [PostController::class, 'profile'])->middleware('auth');;
+Route::get('/profile', [PostController::class, 'profile'])->middleware('auth');
 
-Route::get('/friends', [PostController::class, 'friends'])->middleware('auth');;
+Route::get('/friends', [PostController::class, 'friends'])->middleware('auth');
 
 Route::middleware([
     'auth:sanctum',

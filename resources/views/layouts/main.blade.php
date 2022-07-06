@@ -45,7 +45,7 @@
                                 <a href="/" class="nav-link">Início</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/profile" class="nav-link">Meu perfil</a>
+                                <a href="/profile" class="nav-link">Perfil</a>
                             </li>
                             <li class="nav-item">
                                 <form action="/logout" method="POST">

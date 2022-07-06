@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -17,9 +18,10 @@ class PostController extends Controller
             ])->get();
         } else {
             $posts = Post::latest()->get();
+            $postCreators = User::all();
         }
 
-        return view('welcome', ['posts' => $posts, 'search' => $search]);
+        return view('welcome', ['posts' => $posts, 'search' => $search, 'postCreators' => $postCreators]);
     }
 
     public function store(Request $request) 
@@ -39,6 +41,9 @@ class PostController extends Controller
 
             $post->image = $imageName;
         }
+
+        $user = auth()->user();
+        $post->user_id = $user->id;
 
         $post->save();
 

@@ -3,12 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
-Route::get('/', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index'])->middleware('auth');
 Route::post('/', [PostController::class, 'store']);
 
-Route::get('/profile', [PostController::class, 'profile']);
+Route::get('/profile', [PostController::class, 'profile'])->middleware('auth');;
 
-Route::get('/friends', [PostController::class, 'friends']);
+Route::get('/friends', [PostController::class, 'friends'])->middleware('auth');;
 
 Route::middleware([
     'auth:sanctum',

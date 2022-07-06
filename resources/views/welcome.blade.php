@@ -22,7 +22,11 @@
     @foreach ($posts as $post)
         <div id="cards-container" class="row col-md-12">
             <div>
-                <p class="card-date"></p>
+                @foreach ($postCreators as $postCreator)
+                   @if ($post->user_id === $postCreator->id)
+                      <p class="card-user">{{ $postCreator->name }}</p>
+                   @endif
+                @endforeach
                 <img class="img-post" id="img-post" src="/img/posts/{{ $post->image }}" alt="Imagem postada por Usuário" data-content="{{ $post->content }}" data-bs-toggle="modal" data-bs-target="#myModal">
                 <p class="post-likes">
                     <!-- <ion-icon name="thumbs-up-outline" class="thumbs-icon-changed" id="thumb-icon-changed"></ion-icon>  -->
@@ -38,7 +42,7 @@
           <div class="modal-dialog modal-dialog-centered modal-lg" >
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Usuário</h5>
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">

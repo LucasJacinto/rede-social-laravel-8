@@ -9,5 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $dates = ['updated_at'];
+    public function user() 
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

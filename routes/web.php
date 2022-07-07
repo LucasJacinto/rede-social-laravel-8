@@ -7,6 +7,7 @@ Route::get('/', [PostController::class, 'index'])->middleware('auth');
 Route::post('/', [PostController::class, 'store']);
 
 Route::get('/profile', [PostController::class, 'profile'])->middleware('auth');
+Route::delete('/profile/{id}', [PostController::class, 'destroy']);
 
 Route::get('/friends', [PostController::class, 'friends'])->middleware('auth');
 

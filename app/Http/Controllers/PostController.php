@@ -57,6 +57,13 @@ class PostController extends Controller
 
         return view('profile', ['posts' => $posts, 'user' => $user]);
     }
+    
+    public function destroy($id)
+    {
+        Post::findOrFail($id)->delete();
+
+        return redirect('/profile');
+    }
 
     public function friends()
     {

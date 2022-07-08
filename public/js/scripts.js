@@ -17,6 +17,19 @@ document.addEventListener("click", function(e){
     }
 })
 
+$(document).ready(function (e) {
+    $('.delete-btn').click(function (e) {
+        var postId = $(this).val();
+
+        var action = `/profile/${postId}`;
+        
+        $('.delete-form').attr("action", action);
+
+        // var deleteForm = $('.delete-form').attr("action")
+        // console.log(deleteForm);
+    })
+})
+
 // $(function () {
 //     $('#thumb-icon-changed').hide();
     

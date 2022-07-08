@@ -17,7 +17,9 @@
                     <p class="user-name-profile">{{ $user->name }}</p>
                     <div class="btn-actions-profile">
                         <a href="#" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon></a>
-                        <button class="btn btn-danger delete-btn" data-bs-toggle="modal" data-bs-target="#modalDelete"><ion-icon name="trash-outline"></ion-icon></button>
+                        <button class="btn btn-danger delete-btn" data-bs-toggle="modal" data-bs-target="#modalDelete" value="{{ $post->id }}">
+                            <ion-icon name="trash-outline"></ion-icon>
+                        </button>
                     </div>
                     @if ($post->image !== null)
                         <img class="img-post" id="img-post" src="/img/posts/{{ $post->image }}" alt="Imagem postada por Usuário" data-content="{{ $post->content }}" data-bs-toggle="modal" data-bs-target="#myModal">
@@ -51,27 +53,28 @@
             </div>
 
             <!-- Modal delete -->
-            <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" >
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <h5>Deseja mesmo excluir este post? {{ $post->id }}</h5>
-                </div>
-                <div class="modal-footer">
+            
+                <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" >
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <h5>Deseja mesmo excluir este post?</h5>
+                    </div>
+                    <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <form action="/profile/{{ $post->id }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger delete-btn">Excluir</button>
+                    <form class="delete-form" action="" method="POST">
+                    @csrf
+                    @method('DELETE')
+                        <button type="submit" class="btn btn-danger delete-btn-modal">Excluir</button>
                     </form>
+                    </div>
+                    </div>
                 </div>
                 </div>
-            </div>
-            </div>
         @endforeach
     </div>
 @endif

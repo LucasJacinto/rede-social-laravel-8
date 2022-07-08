@@ -44,10 +44,14 @@ class PostController extends Controller
 
         $user = auth()->user();
         $post->user_id = $user->id;
-
-        $post->save();
-
-        return redirect('/');
+        
+        if ($post->content === null && !$request->hasFile('image')) {
+            return redirect('/')->with('msg', 'Nada para postar!');
+        } else {
+            $post->save();
+            return redirect('/');
+        } 
+        
     }
 
     public function profile()

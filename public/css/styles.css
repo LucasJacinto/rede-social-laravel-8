@@ -32,6 +32,16 @@ header {
     padding: 0;
 }
 
+.msg {
+    background-color: #edd4d4;
+    color: #571515;
+    border: 1px solid #e6c3c3;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+}
+
 #navbar {
     justify-content: space-between;
     background-color: #fff;
@@ -114,6 +124,10 @@ header {
     margin: 15px;
 }
 
+.user-name {
+    font-weight: bold;
+}
+
 #cards-container .post-likes {
     margin-top: 8px;
     font-weight: bold;
@@ -181,8 +195,9 @@ header {
     margin: 15px;
 }
 
-.card-user-profile {
+.user-name-profile {
     display: inline-block;
+    font-weight: bold;
 }
 
 #cards-container form {

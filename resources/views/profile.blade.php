@@ -14,19 +14,21 @@
         @foreach ($posts as $post)
             <div id="cards-container" class="row col-md-12">
                 <div class="card-post">
-                    <p class="card-user-profile">{{ $user->name }}</p>
+                    <p class="user-name-profile">{{ $user->name }}</p>
                     <div class="btn-actions-profile">
                         <a href="#" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon></a>
                         <button class="btn btn-danger delete-btn" data-bs-toggle="modal" data-bs-target="#modalDelete"><ion-icon name="trash-outline"></ion-icon></button>
                     </div>
-                    <img class="img-post" id="img-post" src="/img/posts/{{ $post->image }}" alt="Imagem postada por Usuário" data-content="{{ $post->content }}" data-bs-toggle="modal" data-bs-target="#myModal">
+                    @if ($post->image !== null)
+                        <img class="img-post" id="img-post" src="/img/posts/{{ $post->image }}" alt="Imagem postada por Usuário" data-content="{{ $post->content }}" data-bs-toggle="modal" data-bs-target="#myModal">
+                    @endif
+                    <p class="card-content">{{ $post->content }}</p>
                     <p class="post-likes">
                         <!-- <ion-icon name="thumbs-up-outline" class="thumbs-icon-changed" id="thumb-icon-changed"></ion-icon>  -->
                         <!-- <input type="checkbox" name="icon-check" id="icon-check"> -->
                         <label class="label" for="icon-check"><ion-icon name="thumbs-up-outline" class="thumbs-icon" id="thumbs-icon" data-id-post="{{ $post->id }}"></ion-icon></label>
                         curtidas: X
                     </p>
-                    <p class="card-content">{{ $post->content }}</p>
                 </div>
             </div>
 
@@ -57,7 +59,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <h5>Deseja mesmo excluir este post?</h5>
+                    <h5>Deseja mesmo excluir este post? {{ $post->id }}</h5>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

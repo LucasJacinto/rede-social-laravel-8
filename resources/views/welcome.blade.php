@@ -24,17 +24,19 @@
             <div class="card-post">
                 @foreach ($postCreators as $postCreator)
                    @if ($post->user_id === $postCreator->id)
-                      <p class="card-user">{{ $postCreator->name }}</p>
+                      <p class="user-name">{{ $postCreator->name }}</p>
                    @endif
                 @endforeach
-                <img class="img-post" id="img-post" src="/img/posts/{{ $post->image }}" alt="Imagem postada por Usuário" data-content="{{ $post->content }}" data-bs-toggle="modal" data-bs-target="#myModal">
+                @if ($post->image !== null)
+                    <img class="img-post" id="img-post" src="/img/posts/{{ $post->image }}" alt="Imagem postada por Usuário" data-content="{{ $post->content }}" data-bs-toggle="modal" data-bs-target="#myModal">
+                @endif
+                <p class="card-content">{{ $post->content }}</p>
                 <p class="post-likes">
                     <!-- <ion-icon name="thumbs-up-outline" class="thumbs-icon-changed" id="thumb-icon-changed"></ion-icon>  -->
                     <!-- <input type="checkbox" name="icon-check" id="icon-check"> -->
                     <label class="label" for="icon-check"><ion-icon name="thumbs-up-outline" class="thumbs-icon" id="thumbs-icon" data-id-post="{{ $post->id }}"></ion-icon></label>
                     curtidas: X
                 </p>
-                <p class="card-content">{{ $post->content }}</p>
             </div>
         </div>
         <!-- Modal -->

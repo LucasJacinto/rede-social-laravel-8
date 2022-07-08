@@ -72,6 +72,9 @@
                 </div>
             </nav>
         </header>
+        @if(session('msg'))
+            <p class="msg">{{ session('msg') }}</p>
+        @endif
         @yield('content')
         <footer>
             <p>Rede Social &copy; 2022</p>

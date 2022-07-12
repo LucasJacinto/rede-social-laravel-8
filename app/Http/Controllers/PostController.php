@@ -57,7 +57,8 @@ class PostController extends Controller
     public function profile()
     {
         $user = auth()->user();
-        $posts = $user->posts;
+        $posts = Post::latest()->get();
+        //$posts = $user->posts;
 
         return view('profile', ['posts' => $posts, 'user' => $user]);
     }

@@ -42,6 +42,8 @@ header {
     padding: 10px;
 }
 
+/* Navigation */
+
 #navbar {
     justify-content: space-between;
     background-color: #fff;
@@ -70,7 +72,7 @@ header {
     margin: 20px auto;
 }
 
-#post-create-container textarea {
+#content {
     height: 150px;
     border-radius: 5px;
     border: solid 1px rgba(0, 0, 0, 0.185);
@@ -81,7 +83,7 @@ header {
     justify-content: end;
 }
 
-#post-create-container label {
+.label-img {
     color: #fff;
     background-color: #F29D52;
     margin-right: 5px;
@@ -100,7 +102,7 @@ header {
     padding-top: 7px;
 }
 
-#post-create-container #image {
+#image {
     display: none;
 }
 
@@ -211,6 +213,11 @@ header {
 
 #myModal .modal-footer {
     justify-content: start;
+}
+
+.img-preview {
+    width: 100px;
+    padding: 10px;
 }
 
 

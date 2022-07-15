@@ -12,8 +12,6 @@ document.addEventListener("click", function(e){
 
         const content = e.target.getAttribute("data-content");
         document.querySelector(".modal-post-content").innerHTML = content;
-
-        const myModal = new bootstrap.Modal(document.getElementById('myModal'));
     }
 })
 
@@ -27,6 +25,29 @@ $(document).ready(function (e) {
 
         // var deleteForm = $('.delete-form').attr("action")
         // console.log(deleteForm);
+    })
+    
+    $('.edit-btn').click(function (e) {
+        var postId = $(this).val();
+
+        var action = `/profile/${postId}`;
+        
+        $('.edit-form').attr("action", action);
+
+        // var deleteForm = $('.delete-form').attr("action")
+        // console.log(deleteForm);
+
+        var content = $(this).attr("data-content");
+
+        $('.form-control').text(content);
+
+        //console.log(content);
+
+        src = $(this).attr("data-image");
+        
+        $('.img-preview').attr("src", src)
+
+        //console.log(src);
     })
 })
 

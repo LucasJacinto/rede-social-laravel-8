@@ -17,7 +17,9 @@
                     <div class="card-post">
                         <p class="user-name-profile">{{ $user->name }}</p>
                         <div class="btn-actions-profile">
-                            <a href="#" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon></a>
+                            <button class="btn btn-info edit-btn" data-bs-toggle="modal" data-bs-target="#modalEdit" value="{{ $post->id }}" data-content="{{ $post->content }}" data-image="/img/posts/{{ $post->image }}">
+                                <ion-icon name="create-outline"></ion-icon>
+                            </button>
                             <button class="btn btn-danger delete-btn" data-bs-toggle="modal" data-bs-target="#modalDelete" value="{{ $post->id }}">
                                 <ion-icon name="trash-outline"></ion-icon>
                             </button>
@@ -54,7 +56,6 @@
                 </div>
 
                 <!-- Modal delete -->
-                
                 <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" >
                     <div class="modal-content">
@@ -71,6 +72,33 @@
                     @csrf
                     @method('DELETE')
                         <button type="submit" class="btn btn-danger delete-btn-modal">Excluir</button>
+                    </form>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Modal edit -->
+                <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editando post</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="edit-form" action="" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body text-center">
+                        <textarea name="content" id="content" class="form-control" placeholder="Nova publicação"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <label class="label-img" for="image">Imagem</label>
+                        <img class="img-preview" src="img/posts/{{ $post->image }}" alt="">
+                        <div class="nomeArquivo"></div>
+                        <input type="file" name="image" id="image" accept="image/*">
+                        <button type="submit" class="btn btn-danger delete-btn-modal">Editar</button>
                     </form>
                     </div>
                     </div>

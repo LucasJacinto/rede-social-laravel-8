@@ -57,7 +57,7 @@ class PostController extends Controller
     public function profile()
     {
         $user = auth()->user();
-        $posts = Post::latest()->get();
+        $posts = Post::orderBy('updated_at', 'desc')->get();
         //$posts = $user->posts;
 
         return view('profile', ['posts' => $posts, 'user' => $user]);
@@ -66,6 +66,28 @@ class PostController extends Controller
     public function destroy($id)
     {
         Post::findOrFail($id)->delete();
+
+        return redirect('/profile');
+    }
+
+    public function update(Request $request)
+    {
+        $data = $request->all();
+
+        //Image Upload
+        if($request->hasFile('image') && $request->file('image')->isValid()) {
+            $requestImage = $request->image;
+
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+            $requestImage->move(public_path('img/posts'), $imageName);
+
+            $data['image'] = $imageName;
+        }
+
+        Post::findOrFail($request->id)->update($data);
 
         return redirect('/profile');
     }

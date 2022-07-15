@@ -9,7 +9,7 @@
         @csrf
         <textarea name="content" id="content" class="form-control" placeholder="Nova publicação"></textarea>
         <div>
-            <label for="image">Imagem</label>
+            <label class="label-img" for="image">Imagem</label>
             <div class="nomeArquivo"></div>
             <input type="file" name="image" id="image" accept="image/*">
             <input type="submit" class="btn btn-primary" value="Postar">
@@ -17,9 +17,8 @@
     </form>
 </div>
 
-
-<div id="posts-container" class="col-md-12">
-    @foreach ($posts as $post)
+@foreach ($posts as $post)
+    <div id="posts-container" class="col-md-12">
         <div id="cards-container" class="row col-md-12">
             <div class="card-post">
                 @foreach ($postCreators as $postCreator)
@@ -56,8 +55,8 @@
             </div>
           </div>
         </div>
-    @endforeach
-</div>
+    </div>
+@endforeach
 
 
 @endsection

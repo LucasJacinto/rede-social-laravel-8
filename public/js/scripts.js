@@ -27,7 +27,7 @@ $(document).ready(function (e) {
         // console.log(deleteForm);
     })
     
-    $('.edit-btn').click(function (e) {
+    $('.edit-btn').click(function(e) {
         var postId = $(this).val();
 
         var action = `/profile/${postId}`;
@@ -48,6 +48,24 @@ $(document).ready(function (e) {
         $('.img-preview').attr("src", src)
 
         //console.log(src);
+    })
+
+    $('.like-btn').click(function(e) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var id = $(this).attr("id");
+        console.log(id);
+        
+        $.post(`/like/${id}`, function() {
+            console.log('sucesso!');
+        })
+          .fail(function() {
+              console.log('error!');
+          })
     })
 })
 

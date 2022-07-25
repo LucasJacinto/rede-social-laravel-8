@@ -30,11 +30,27 @@
                     <img class="img-post" id="img-post" src="/img/posts/{{ $post->image }}" alt="Imagem postada por Usuário" data-content="{{ $post->content }}" data-bs-toggle="modal" data-bs-target="#myModal">
                 @endif
                 <p class="card-content">{{ $post->content }}</p>
-                <p class="post-likes">
+                <p class="post-likes" likes="{{ count($post->users) }}">
                     <!-- <ion-icon name="thumbs-up-outline" class="thumbs-icon-changed" id="thumb-icon-changed"></ion-icon>  -->
                     <!-- <input type="checkbox" name="icon-check" id="icon-check"> -->
-                    <label class="label" for="icon-check"><ion-icon name="thumbs-up-outline" class="thumbs-icon" id="thumbs-icon" data-id-post="{{ $post->id }}"></ion-icon></label>
-                    curtidas: X
+                    
+                    <!-- Tentar fazer via ajax pra não ter que recarregar a página -->
+                    <ion-icon name="thumbs-up-outline" class="like-btn" id="{{ $post->id }}" data-id-post="{{ $post->id }}"></ion-icon>
+                    <!-- <form action="/like/{{ $post->id }}" method="POST">
+                        @csrf
+                        <label class="label" for="icon-check">
+                            <a href="/like/{{ $post->id }}"
+                               onclick="event.preventDefault();
+                               this.closest('form').submit();">
+                                <ion-icon name="thumbs-up-outline" class="thumbs-icon" id="thumbs-icon" data-id-post="{{ $post->id }}"></ion-icon>
+                            </a>
+                        </label>
+                    </form> -->
+                    <!-- Tentar fazer via ajax pra não ter que recarregar a página -->
+                    curtidas:   @php
+                                $postUser = DB::table('post_user')->where('post_id', $post->id)->get();
+                                echo count($postUser);
+                                @endphp
                 </p>
             </div>
         </div>

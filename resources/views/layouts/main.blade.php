@@ -20,7 +20,12 @@
 
         <!-- CSS da aplicação -->
         <link rel="stylesheet" href="/css/styles.css">
+
+        <!-- JS da aplicação -->
         <script src="/js/scripts.js"></script>
+
+        <!-- csrf -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body>
         <header>

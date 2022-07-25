@@ -21,7 +21,11 @@ class PostController extends Controller
             $postCreators = User::all();
         }
 
-        return view('welcome', ['posts' => $posts, 'search' => $search, 'postCreators' => $postCreators]);
+        return view('welcome', [
+            'posts' => $posts,
+            'search' => $search,
+            'postCreators' => $postCreators,
+        ]);
     }
 
     public function store(Request $request) 
@@ -90,6 +94,15 @@ class PostController extends Controller
         Post::findOrFail($request->id)->update($data);
 
         return redirect('/profile');
+    }
+
+    public function likePost($id)
+    {
+        $user = auth()->user();
+
+        $user->postsLikes()->attach($id);
+
+        return redirect('/');
     }
 
     public function friends()

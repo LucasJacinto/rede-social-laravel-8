@@ -29,8 +29,8 @@
     </head>
     <body>
         <header>
-            <nav id="nav" class="navbar navbar-expand-lg navbar-light">
-                <div class="collapse navbar-collapse" id="navbar">
+            <nav id="nav" class="navbar navbar-expand-sm navbar-light">
+                <div  id="navbar">
                     <div>
                         <div id="logo">
                             <a href="/" class="navbar-brand">
@@ -38,13 +38,13 @@
                             </a>
                         </div>
                         <div id="post-search-container">
-                            <form action="/" method="GET">
+                            <form class="form-inline" action="/" method="GET">
                                 <input type="text" class="form-control" name="search" id="search" placeholder="Procurar...">
                             </form>
                         </div>
                     </div>
                     <div>
-                        <button id="btn-mobile">Menu
+                        <button id="btn-mobile">
                             <span id="hamburger"></span>
                         </button>
                         <ul class="navbar-nav">

@@ -45,9 +45,12 @@ header {
 /* Navigation */
 
 #navbar {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     background-color: #fff;
     padding: 5px 0;
+    width: 100%;
 }
 
 #post-search-container{
@@ -73,7 +76,7 @@ header {
     display: none;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 600px) {
     .navbar-nav {
         display: block;
         position: absolute;
@@ -89,7 +92,7 @@ header {
     }
     #nav.active .navbar-nav {
         display: block;
-        height: calc(100vh - 70px);
+        height: calc(40vh - 70px);
         visibility: visible;
         overflow-y: auto;
     }

@@ -29,7 +29,7 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light">
+            <nav id="nav" class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
                     <div>
                         <div id="logo">
@@ -44,6 +44,9 @@
                         </div>
                     </div>
                     <div>
+                        <button id="btn-mobile">Menu
+                            <span id="hamburger"></span>
+                        </button>
                         <ul class="navbar-nav">
                             @auth
                             <li class="nav-item">

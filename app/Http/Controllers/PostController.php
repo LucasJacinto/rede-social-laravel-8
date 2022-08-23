@@ -17,6 +17,7 @@ class PostController extends Controller
             $posts = Post::where([
                 ['content', 'like', '%'.$search.'%']
             ])->get();
+            $postCreators = User::all();
         } else {
             $posts = Post::latest()->get();
             $postCreators = User::all();

@@ -35,7 +35,9 @@
                     <!-- <input type="checkbox" name="icon-check" id="icon-check"> -->
                     
                     <!-- Tentar fazer via ajax pra não ter que recarregar a página -->
-                    <ion-icon name="thumbs-up-outline" class="like-btn" id="{{ $post->id }}" data-id-post="{{ $post->id }}"></ion-icon>
+                    <button id="btn-like" data-id-post="{{ $post->id }}" onclick="curtir(this)">
+                      <ion-icon name="thumbs-up-outline" class="like-btn" id="{{ $post->id }}" data-id-post="{{ $post->id }}"></ion-icon>
+                    </button>
                     <!-- <form action="/like/{{ $post->id }}" method="POST">
                         @csrf
                         <label class="label" for="icon-check">

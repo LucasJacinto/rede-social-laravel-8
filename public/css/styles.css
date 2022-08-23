@@ -217,6 +217,16 @@ header {
     cursor: pointer;
 }
 
+#btn-like {
+    background-color: #fff;
+    border: none;
+}
+
+#btn-like.active ion-icon {
+    color: #F29D52;
+    transition: .3s;
+}
+
 
 
 /* #icon-check {

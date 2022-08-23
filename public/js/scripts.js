@@ -38,29 +38,47 @@ $(document).ready(function (e) {
         //console.log(src);
     })
 
-    $('.like-btn').click(function(e) {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+    // $('.like-btn').click(function(e) {
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
 
-        var id = $(this).attr("id");
-        console.log(id);
+        // var id = $(this).attr("id");
         
-        $.post(`/like/${id}`, function() {
-            console.log('sucesso!');
-        })
-        .fail(function() {
-            console.log('error!');
-          })
-        })
+        // $.post(`/like/${id}`, function() {
+        //     console.log('sucesso!');
+        // })
+        // .fail(function() {
+        //     console.log('error!');
+        //   })
+        // })
 
-        $('#btn-mobile').click(function(e) {
-            const nav = document.getElementById('nav');
-            nav.classList.toggle('active');
-        })
+    $('#btn-mobile').click(function(e) {
+        const nav = document.getElementById('nav');
+        nav.classList.toggle('active');
+    })
 })
+
+function curtir(elemento) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    var id = elemento.getAttribute("data-id-post");
+    
+    $.post(`/like/${id}`, function() {
+        console.log('sucesso!');
+    })
+    .fail(function() {
+        console.log('error!');
+    });
+
+    elemento.classList.add("active");
+}
 
 document.addEventListener("click", function(e){
     if (e.target.classList.contains("img-post")) {

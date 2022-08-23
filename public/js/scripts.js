@@ -1,8 +1,11 @@
 $(document).ready(function (e) {
-    $('#image').change(function() {
-        var fileName = $('#image').val().split('\\').pop();
-        $('.nomeArquivo').text(" Arquivo selecionado: " + fileName);
-   });
+    $('#image').change(function (e) { 
+        const fileToUpload = e.target.files.item(0);
+    
+        const reader = new FileReader();
+        reader.onload = e => $('.preview-img').attr("src", e.target.result);
+        reader.readAsDataURL(fileToUpload);
+    });
 
     $('.delete-btn').click(function (e) {
         var postId = $(this).val();
@@ -33,27 +36,10 @@ $(document).ready(function (e) {
         
         src = $(this).attr("data-image");
         
-        $('.img-preview').attr("src", src)
+        $('.img-preview').attr("src", src);
         
         //console.log(src);
     })
-
-    // $('.like-btn').click(function(e) {
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
-
-        // var id = $(this).attr("id");
-        
-        // $.post(`/like/${id}`, function() {
-        //     console.log('sucesso!');
-        // })
-        // .fail(function() {
-        //     console.log('error!');
-        //   })
-        // })
 
     $('#btn-mobile').click(function(e) {
         const nav = document.getElementById('nav');
@@ -89,12 +75,3 @@ document.addEventListener("click", function(e){
         document.querySelector(".modal-post-content").innerHTML = content;
     }
 })
-
-// $(function () {
-//     $('#thumb-icon-changed').hide();
-
-//     $(document.addEventListener("click", function(e){
-//         console.log(e.target.getAttribute("data-id-post"));
-        
-//     }))
-// })

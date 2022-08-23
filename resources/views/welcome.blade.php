@@ -9,10 +9,10 @@
         @csrf
         <textarea name="content" id="content" class="form-control" placeholder="Nova publicação"></textarea>
         <div>
-            <label class="label-img" for="image">Imagem</label>
-            <div class="nomeArquivo"></div>
-            <input type="file" name="image" id="image" accept="image/*">
-            <input type="submit" class="btn btn-primary" value="Postar">
+          <input type="submit" class="btn btn-primary" value="Postar">
+          <label class="label-img" for="image">Imagem</label>
+          <input type="file" name="image" id="image" accept="image/*">
+          <img class="preview-img" src="">
         </div>
     </form>
 </div>

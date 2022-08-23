@@ -89,8 +89,7 @@
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <label class="label-img" for="image">Imagem</label>
-                        <img class="img-preview" src="img/posts/{{ $post->image }}" alt="">
-                        <div class="nomeArquivo"></div>
+                        <img class="preview-img" src="img/posts/{{ $post->image }}" alt="">
                         <input type="file" name="image" id="image" accept="image/*">
                         <button type="submit" class="btn btn-danger delete-btn-modal">Editar</button>
                     </form>
